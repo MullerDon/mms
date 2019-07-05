@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml11-transitional.dtd">
+<html>
+<head>
+
+<title>Job Cost</title>
+
+<style type="text/css">
+
+.footer {text-align: center;}
+.header {text-align: left;}
+h3 {text-align:left;}
+h2 {text-decoration: underline; text-align: center;}
+.floatbox {width: 125px;height: 275px;float: right;background-color: #ffff66;/*yellow*/padding: 1em;border: solid black 1px;}
+
+</style>
+</head>
+<body>
+
+<p class="floatbox">
+<i>Please enter the amount with cents after the decimal point and <b>only use numbers</b>. An example of an amount would be 10000.67 for R10,000.67<br><b>Enter 0 if you are not sure.</b></i>
+</p>
+
+<form action="edit_cost_wc.php" method ="post">
+
+
+
+<fieldset>
+<legend><b>Enter the job ID and select the assigned person</b></legend>
+<p>Enter the job ID:</p>
+<tr>
+<td><b>WC</b></td><td><input type="text" name="job_id"></td>
+
+
+<p>Job assigned to:</p>
+	<select name= "assigtech_cost">
+
+		<optgroup label="Cape Point Office">
+			<option value="Bhawoodien Parker">Bhawoodien Parker</option>
+			<option value="Casper Labuschagne">Casper Labuschagne</option>
+			<option value="Danie Van Der Spuy">Danie Van Der Spuy</option>
+			<option value="Ernst Brunke">Ernst Brunke</option>
+			<option value="Thumeka Mkololo">Thumeka Mkololo</option>
+			<option value="Other (Cape Point)">Other (Cape Point)</option>
+		</optgroup>
+
+		<optgroup label="Cape Town Office">
+			<option selected> </option>
+			<option value="Adele Van Eeden">Adele Van Eeden</option>
+			<option value="Carlton Fillis">Carlton Fillis</option>
+			<option value="Gail Linnow">Gail Linnow</option>
+			<option value="Henning Grobler">Henning Grobler</option>
+			<option value="Jan Crous">Jan Crous</option>
+			<option value="Johan Labuschagne">Johan Labuschagne</option>
+			<option value="Johan Singleton">Johan Singleton</option>
+			<option value="Kate Turner">Kate Turner</option>
+			<option value="Mardene de Villiers">Mardene de Villiers</option>
+			<option value="Natheer Tofa">Natheer Tofa</option>
+			<option value="Nicolene Swart">Nicolene Swart</option>
+			<option value="Nolwazi Mpela">Nolwazi Mpela</option>
+			<option value="Patrick Jacobs">Patrick Jacobs</option>
+			<option value="Peter Roux">Peter Roux</option>
+			<option value="Phumza Mbali">Phumza Mbali</option>
+			<option value="Rian Smit">Rian Smit</option>
+			<option value="Robin-Lee Burger">Robin-Lee Burger</option>
+			<option value="Santjie Du Toit">Santjie Du Toit</option>
+			<option value="Siviwe Khabiqheya">Siviwe Khabiqheya</option>
+			<option value="Johan Stander">Johan Stander</option>
+			<option value="Stella Nake">Stella Nake</option>
+			<option value="Sydney Marais">Sydney Marais</option>
+			<option value="Thabisile Ntleko">Thabisile Ntleko</option>
+			<option value="Tshikana Rasehlomi">Tshikana Rasehlomi</option>
+			<option value="Other (Cape Town)">Other (Cape Town)</option>
+			<option value="InterMet Diel">InterMet Diel</option>
+			<option value="Technical Service Irene">Technical Service Irene</option>
+		</optgroup>	
+		<optgroup label="George Office">
+			<option value="Anthea Ayshlie">Anthea Ayshlie</option>
+			<option value="Bjorn Perks">Bjorn Perks</option>
+			<option value="Danie Ferreira">Danie Ferreira</option>
+			<option value="Koot Kamfer">Koot Kamfer</option>
+			<option value="Nico Theron">Nico Theron</option>
+			<option value="Refilwe Raito">Refilwe Raito</option>
+			
+			<option value="Other (George)">Other (George)</option>
+		</optgroup>
+		<optgroup label="Technologist Group">
+			<option value="Ambrose.Gambushe">Ambrose Gambushe</option>
+			<option value="Charmaine.Shibambo">Charmaine Shibambo</option>
+			<option value="Davis.Moshweunyane">Davis Moshweunyane</option>
+			<option value="Donald.Muller">Donald Muller</option>	
+			<option value="Dumisani.Mhlophe">Dumisani Mhlophe</option>
+			<option value="Edward.Barnies">Edward Barnies</option>
+			<option value="Floyd.Ngwato">Floyd Ngwato</option>
+			<option value="Lati.Selepe">Lati Selepe</option>
+			<option value="Natheer.Tofa">Natheer Tofa</option>
+			<option value="Dumisani.Mhlophe">Dumisani Mhlophe</option>
+			<option value="Peter.Roux">Peter Roux</option>
+			<option value="Riaan.Lourens">Riaan Lourens</option>
+			<option value="Sandile.Mdose">Sandile Mdose</option>
+			<option value="Tankiso.Seboka">Tankiso Seboka</option>
+			<option value="Webster.Ngoepe">Webster Ngoepe</option>
+			<option value="Zamikhaya.Magogotya">Zamikhaya Magogotya</option>
+			<option value="Technologists - Other">Technologists - Other</option>
+		</optgroup>
+	</select>
+</tr>
+</fieldset>
+<br />
+<fieldset>
+<legend><b>Enter general costs</b></legend>
+<table border="0" width="100%">
+<tr>
+<td width="25%">
+<p>Enter the cost centre number if known:</p>
+<textarea name="cost_centre" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter the GL account number if known:</p>
+<textarea name="gl_acc" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter subsistance and travel (S&T) cost below:</p>
+<textarea name="st_cost" rows="1" cols="30">
+</textarea>
+</td>
+</tr>
+</table>
+
+
+<table border="0" width="100%">
+<tr>
+<td width="25%">
+<p>Enter accommodation cost below:</p>
+<textarea name="accom_cost" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter fuel cost below:</p>
+<textarea name="fuel_cost" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter total KM's below:</p>
+<textarea name="km_total" rows="1" cols="30">
+</textarea>
+</td>
+</tr>
+</table>
+</fieldset>
+<br />
+<br />
+
+<fieldset>
+<legend><b>Enter Hours</b></legend>
+<table border="0" width="50%">
+<tr>
+<td width="25%">
+<p>Enter hours worked below:</p>
+<textarea name="man_hrs" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter traveling hours below:</p>
+<textarea name="travel_hrs" rows="1" cols="30">
+</textarea>
+</td>
+</table>
+</fieldset>
+<br />
+<br />
+<fieldset>
+<legend><b>Enter part costs</b></legend>
+<table border="0" width="50%">
+<tr>
+<td width="25%">
+<p>Enter part description:</p>
+<textarea name="part_descr" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter part cost if known:</p>
+<textarea name="part_cost" rows="1" cols="30">
+</textarea>
+</td>
+</table>
+</fieldset>
+
+<br />
+
+
+	<input type="submit" value="Update">
+	<input type="reset" value="Clear all entries" />
+</form>
+<td>
+<p class="footer">
+<a href="edit_close_wc.html">Back</a> 
+</p>
+</td>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml11-transitional.dtd">
+<html>
+<head>
+
+<title>Job Cost</title>
+
+<style type="text/css">
+
+.footer {text-align: center;}
+.header {text-align: left;}
+h3 {text-align:left;}
+h2 {text-decoration: underline; text-align: center;}
+.floatbox {width: 125px;height: 275px;float: right;background-color: #ffff66;/*yellow*/padding: 1em;border: solid black 1px;}
+
+</style>
+</head>
+<body>
+
+<p class="floatbox">
+<i>Please enter the amount with cents after the decimal point and <b>only use numbers</b>. An example of an amount would be 10000.67 for R10,000.67<br><b>Enter 0 if you are not sure.</b></i>
+</p>
+
+<form action="edit_cost_gau.php" method ="post">
+
+
+
+<fieldset>
+<legend><b>Enter the job ID and select the assigned person</b></legend>
+<p>Enter the job ID:</p>
+<tr>
+<td><b>GAU</b></td><td><input type="text" name="job_id"></td>
+
+
+<p>Job assigned to:</p>
+	<select name= "assigtech_cost">
+
+		<optgroup label="Bolepi Office">
+			<option selected> </option>
+			<option value="Abednego.Gumede">Abednego Gumede</option>
+			<option value="Dan Maputle">Dan Maputle</option>
+			<option value="Dithuso Mogapi">Dithuso Mogapi</option>
+			<option value="Joseph Nkosi">Joseph Nkosi</option>
+			<option value="Kabelo Moabi">Kabelo Moabi</option>	
+			<option value="Marlin Coert">Marlin Coert</option>
+			<option value="Peter Lekala">Peter Lekala</option>
+			<option value="Simon Tshwana">Simon Tshwana</option>
+			<option value="Victor Mafata">Victor Mafata</option>
+			<option value="Other (Bolepi)">Other (Bolepi)</option>
+		</optgroup>	
+		<optgroup label="Irene Office">
+			<option value="Ambrose.Gambushe">Ambrose Gambushe</option>
+			<option value="Charmaine.Shibambo">Charmaine Shibambo</option>
+			<option value="Dikobote.Makhutle">Dikobote Makhutle</option>
+			<option value="Duduzile.Dzondzi">Duduzile Dzondzi</option>
+			<option value="Dumisani.Mhlophe">Dumisani Mhlophe</option>
+			<option value="Emily.Maredi">Emily Maredi</option>
+			<option value="Floyd.Ngwato">Floyd Ngwato</option>
+			<option value="Hendrik.Swart">Hendrik Swart</option>
+			<option value="Jessica.Erasmus">Jessica Erasmus</option>
+			<option value="John.Khanyile">John Khanyile</option>
+			<option value="Joseph.Lekwadu">Joseph Lekwadu</option>
+			<option value="Lati.Selepe">Lati Selepe</option>
+			<option value="Machoene.Thupana">Machoene Thupana</option>
+			<option value="Misokuhle.Bulayane">Misokuhle Bulayane</option>
+			<option value="Moaginyane.Molalugi">Moaginyane Molalugi</option>
+			<option value="Nomvuso.Busizi">Nomvuso Busizi</option>
+			<option value="Peter.Mabasa">Peter Mabasa</option>
+			<option value="Phillip.Mothokoa">Phillip Mothokoa</option>
+			<option value="Riaan.Lourens">Riaan Lourens</option>
+			<option value="Rydall.Jardine">Rydall Jardine</option>
+			<option value="Sandile.Mdose">Sandile Mdose</option>
+			<option value="Saul.Hlatswayo">Saul Hlatswayo</option>	
+			<option value="Segale.Motseto">Segale Motseto</option>
+			<option value="Sello.Motsetso">Sello Motsetso</option>
+			<option value="Simon.Molato">Simon Molato</option>
+			<option value="Solly.Shaku">Solly Shaku</option>
+			<option value="Thabiso.Sekhoto">Thabiso Sekhoto</option>
+			<option value="Velelo.Mazele">Velelo Mazele</option>
+			<option value="Webster.Ngoepe">Webster Ngoepe</option>
+			<option value="Zamikhaya.Magogotya">Zamikhaya Magogotya</option>
+			<option value="Other (Irene)">Other (Irene)</option>
+		</optgroup>
+			<optgroup label="ORT Office">
+			<option value="Bawinile Mgedesi">Bawinile Mgedesi</option>
+			<option value="Dineo Matsana">Dineo Matsana</option>
+			<option value="Denzil Subramani">Denzil Subramani</option>
+			<option value="Enny Tsebe">Enny Tsebe</option>
+			<option value="Kobus Viljoen">Kobus Viljoen</option>
+			<option value="Menthiam Sebesho">Menthiam Sebesho</option>
+			<option value="Thabo Molemohi">Thabo Molemohi</option>
+			<option value="Sifiso Mkwanazi">Sifiso Mkwanazi</option>
+			<option value="Yandiswa Sahula">Yandiswa Sahula</option>
+			<option value="Zanele Magomezulu">Zanele Magomezulu</option>
+			<option value="Other (ORT)">Other (ORT)</option>			
+		</optgroup>
+
+		<optgroup label="Technologist Group">
+			<option value="Ambrose.Gambushe">Ambrose Gambushe</option>
+			<option value="Charmaine.Shibambo">Charmaine Shibambo</option>
+			<option value="Davis.Moshweunyane">Davis Moshweunyane</option>
+			<option value="Donald.Muller">Donald Muller</option>	
+			<option value="Dumisani.Mhlophe">Dumisani Mhlophe</option>
+			<option value="Edward.Barnies">Edward Barnies</option>
+			<option value="Floyd.Ngwato">Floyd Ngwato</option>
+			<option value="Lati.Selepe">Lati Selepe</option>
+			<option value="Natheer.Tofa">Natheer Tofa</option>
+			<option value="Dumisani.Mhlophe">Dumisani Mhlophe</option>
+			<option value="Peter.Roux">Peter Roux</option>
+			<option value="Riaan.Lourens">Riaan Lourens</option>
+			<option value="Sandile.Mdose">Sandile Mdose</option>
+			<option value="Tankiso.Seboka">Tankiso Seboka</option>
+			<option value="Webster.Ngoepe">Webster Ngoepe</option>
+			<option value="Zamikhaya.Magogotya">Zamikhaya Magogotya</option>
+			<option value="Technologists - Other">Technologists - Other</option>
+		</optgroup>
+	</select>
+</tr>
+</fieldset>
+<br />
+<fieldset>
+<legend><b>Enter general costs</b></legend>
+<table border="0" width="100%">
+<tr>
+<td width="25%">
+<p>Enter the cost centre number if known:</p>
+<textarea name="cost_centre" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter the GL account number if known:</p>
+<textarea name="gl_acc" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter subsistance and travel (S&T) cost below:</p>
+<textarea name="st_cost" rows="1" cols="30">
+</textarea>
+</td>
+</tr>
+</table>
+
+
+<table border="0" width="100%">
+<tr>
+<td width="25%">
+<p>Enter accommodation cost below:</p>
+<textarea name="accom_cost" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter fuel cost below:</p>
+<textarea name="fuel_cost" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter total KM's below:</p>
+<textarea name="km_total" rows="1" cols="30">
+</textarea>
+</td>
+</tr>
+</table>
+</fieldset>
+<br />
+<br />
+
+<fieldset>
+<legend><b>Enter Hours</b></legend>
+<table border="0" width="50%">
+<tr>
+<td width="25%">
+<p>Enter hours worked below:</p>
+<textarea name="man_hrs" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter traveling hours below:</p>
+<textarea name="travel_hrs" rows="1" cols="30">
+</textarea>
+</td>
+</table>
+</fieldset>
+<br />
+<br />
+<fieldset>
+<legend><b>Enter part costs</b></legend>
+<table border="0" width="50%">
+<tr>
+<td width="25%">
+<p>Enter part description:</p>
+<textarea name="part_descr" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter part cost if known:</p>
+<textarea name="part_cost" rows="1" cols="30">
+</textarea>
+</td>
+</table>
+</fieldset>
+
+<br />
+
+
+	<input type="submit" value="Update">
+	<input type="reset" value="Clear all entries" />
+</form>
+<td>
+<p class="footer">
+<a href="edit_close_gau.html">Back</a> 
+</p>
+</td>
+
+</body>
+</html>

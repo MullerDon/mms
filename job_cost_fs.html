@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml11-transitional.dtd">
+<html>
+<head>
+
+<title>Job Cost</title>
+
+<style type="text/css">
+
+.footer {text-align: center;}
+.header {text-align: left;}
+h3 {text-align:left;}
+h2 {text-decoration: underline; text-align: center;}
+.floatbox {width: 125px;height: 275px;float: right;background-color: #ffff66;/*yellow*/padding: 1em;border: solid black 1px;}
+
+</style>
+</head>
+<body>
+
+<p class="floatbox">
+<i>Please enter the amount with cents after the decimal point and <b>only use numbers</b>. An example of an amount would be 10000.67 for R10,000.67<br><b>Enter 0 if you are not sure.</b></i>
+</p>
+
+<form action="edit_cost_fs.php" method ="post">
+
+
+
+<fieldset>
+<legend><b>Enter the job ID and select the assigned person</b></legend>
+<p>Enter the job ID:</p>
+<tr>
+<td><b>FS</b></td><td><input type="text" name="job_id"></td>
+
+
+<p>Job assigned to:</p>
+	<select name= "assigtech_cost">
+
+		<optgroup label="Bethlehem Office">
+			<option value="Mogomotsi Madibo">Mogomotsi Madibo</option>
+			<option value="Nonky Sebatana">Nonky Sebatana</option>
+			<option value="Tsholo Naledi">Tsholo Naledi</option>
+			<option value="Tumo Xaba">Tumo Xaba</option>
+			<option value="Other (Bethlehem)">Other (Bethlehem)</option>
+		</optgroup>
+
+		<optgroup label="Bloemfontein Office">
+			<option selected> </option>
+			<option value="Berend Maepa">Berend Maepa</option>
+			<option value="Charne Reyneke">Charne Reyneke</option>
+			<option value="Dianah Mabizela">Dianah Mabizela</option>
+			<option value="Francis Mosetlho">Francis Mosetlho</option>
+			<option value="Lerato Mabatla">Lerato Mabatla</option>
+			<option value="Moitheri Ramatsa">Moitheri Ramatsa</option>
+			<option value="Nozi Radebe">Nozi Radebe</option>
+			<option value="Petrus Mokoena">Petrus Mokoena</option>
+			<option value="Sechaba Nyaku">Sechaba Nyaku</option>
+			<option value="Tankiso Seboka">Tankiso Seboka</option>
+			<option value="Other (Bloemfontein)">Other (Bloemfontein)</option>
+			
+		</optgroup>	
+		<optgroup label="Technologist Group">
+			<option value="Ambrose.Gambushe">Ambrose Gambushe</option>
+			<option value="Charmaine.Shibambo">Charmaine Shibambo</option>
+			<option value="Davis.Moshweunyane">Davis Moshweunyane</option>
+			<option value="Donald.Muller">Donald Muller</option>	
+			<option value="Dumisani.Mhlophe">Dumisani Mhlophe</option>
+			<option value="Edward.Barnies">Edward Barnies</option>
+			<option value="Floyd.Ngwato">Floyd Ngwato</option>
+			<option value="Lati.Selepe">Lati Selepe</option>
+			<option value="Natheer.Tofa">Natheer Tofa</option>
+			<option value="Dumisani.Mhlophe">Dumisani Mhlophe</option>
+			<option value="Peter.Roux">Peter Roux</option>
+			<option value="Riaan.Lourens">Riaan Lourens</option>
+			<option value="Sandile.Mdose">Sandile Mdose</option>
+			<option value="Tankiso.Seboka">Tankiso Seboka</option>
+			<option value="Webster.Ngoepe">Webster Ngoepe</option>
+			<option value="Zamikhaya.Magogotya">Zamikhaya Magogotya</option>
+			<option value="Technologists - Other">Technologists - Other</option>
+		</optgroup>
+	</select>
+</tr>
+</fieldset>
+<br />
+<fieldset>
+<legend><b>Enter general costs</b></legend>
+<table border="0" width="100%">
+<tr>
+<td width="25%">
+<p>Enter the cost centre number if known:</p>
+<textarea name="cost_centre" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter the GL account number if known:</p>
+<textarea name="gl_acc" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter subsistance and travel (S&T) cost below:</p>
+<textarea name="st_cost" rows="1" cols="30">
+</textarea>
+</td>
+</tr>
+</table>
+
+
+<table border="0" width="100%">
+<tr>
+<td width="25%">
+<p>Enter accommodation cost below:</p>
+<textarea name="accom_cost" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter fuel cost below:</p>
+<textarea name="fuel_cost" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter total KM's below:</p>
+<textarea name="km_total" rows="1" cols="30">
+</textarea>
+</td>
+</tr>
+</table>
+</fieldset>
+<br />
+<br />
+
+<fieldset>
+<legend><b>Enter Hours</b></legend>
+<table border="0" width="50%">
+<tr>
+<td width="25%">
+<p>Enter hours worked below:</p>
+<textarea name="man_hrs" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter traveling hours below:</p>
+<textarea name="travel_hrs" rows="1" cols="30">
+</textarea>
+</td>
+</table>
+</fieldset>
+<br />
+<br />
+<fieldset>
+<legend><b>Enter part costs</b></legend>
+<table border="0" width="50%">
+<tr>
+<td width="25%">
+<p>Enter part description:</p>
+<textarea name="part_descr" rows="1" cols="30">
+</textarea>
+</td>
+
+<td width="25%">
+<p>Enter part cost if known:</p>
+<textarea name="part_cost" rows="1" cols="30">
+</textarea>
+</td>
+</table>
+</fieldset>
+
+<br />
+
+
+	<input type="submit" value="Update">
+	<input type="reset" value="Clear all entries" />
+</form>
+<td>
+<p class="footer">
+<a href="edit_close_fs.html">Back</a> 
+</p>
+</td>
+
+</body>
+</html>
