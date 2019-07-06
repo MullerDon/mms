@@ -27,13 +27,12 @@ if ($_POST['job_ack'] == "NO")
 }
 $action_plann = strip_tags($_POST['action_plan']);//this will remove any html tags
 
-$connection = mysql_pconnect('localhost', 'root', 'mysqlroot')
-	or die ("Couldn't connect to the DB server");
+$connection = mysqli_connect('localhost', 'root', 'mysqlroot','jobs')
+	or die ("Couldn't connect to the DB");
 
-$db= mysql_select_db("jobs",$connection)
-	or die ("can't select database");
 
-$action_plan = mysql_real_escape_string($action_plann);//This allows special characters such as quotes
+
+$action_plan = mysqli_real_escape_string($connection,$action_plann);//This allows special characters such as quotes
 
 
 $query= "UPDATE job_track_ec SET
@@ -41,12 +40,12 @@ $query= "UPDATE job_track_ec SET
 	where job_id='$_POST[job_id]' AND job_ack !='yes' AND assigned_tech !='None' ";
 	
 
-$result= mysql_query($query)
-or die ("Query failed: Try again or " .mysql_error());
+$result= mysqli_query($connection,$query)
+or die ("Query failed: Try again or " .mysqli_error());
 
 
 
-mysql_close ($connection);
+mysqli_close ($connection);
 ?>
 
 <td>
