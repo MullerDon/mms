@@ -23,11 +23,10 @@
 <?php
 
 
-$connection = mysql_pconnect('localhost', 'root', 'mysqlroot')
-	or die ("Couldn't connect to the DB server");
+$connection = mysqli_connect('localhost', 'root', 'mysqlroot','jobs')
+	or die ("Couldn't connect to the DB");
 
-$db= mysql_select_db("jobs",$connection)
-	or die ("can't select database");
+
 
 
 
@@ -36,12 +35,12 @@ $query= "UPDATE job_track_ec SET
 	where job_id='$_POST[job_id]'";
 	
 
-$result= mysql_query($query)
-or die ("Query failed: Try again or " .mysql_error());
+$result= mysqli_query($connection,$query)
+or die ("Query failed: Try again or " .mysqli_error());
 
 
 
-mysql_close ($connection);
+mysqli_close ($connection);
 ?>
 <td>
 

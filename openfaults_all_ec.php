@@ -14,30 +14,36 @@
 
 <b>All open jobs in Eastern Cape database</b><br />
 <br />
+
 <?php
 
+/*-------------------------------------------------------------*/
 
 
-
-$connection = mysql_pconnect('localhost', 'root', 'mysqlroot')
-	or die ("Couldn't connect to the DB server");
-
-$db= mysql_select_db("jobs",$connection)
-	or die ("can't select database");
+$connection = mysqli_connect("localhost", "root", "mysqlroot","jobs")
+	or die ("Couldn't connect to the DB ");
+/*--------------------------------------------------------------*/
 
 
 $query = "SELECT * FROM job_track_ec
 WHERE fault_status= 'not complete'ORDER BY job_id";
 
-$result = mysql_query($query)
-	or die ("Query failed: " . mysql_error() );
+
+/*--------------------------------------------------------------*/
+$result = mysqli_query($connection,$query)
+	or die ("Query failed: " . mysqli_error() );
+
+/*--------------------------------------------------------------*/
+
+
 
 echo "<table border='1'cellpadding='5'cellspacing='0'>";
 echo "<tr>";
 echo "<th>JobID</th><th>Type</th><th>Fault</th><th>Date Logged</th><th>Status</th><th>Location</th><th>Job assigned to</th><th>Job logged by</th><th>Job accepted?</th><th>Client</th>";
 echo "</tr>";
-
-while ($row = mysql_fetch_array($result))
+/*--------------------------------------------------------------*/
+while ($row = mysqli_fetch_array($result))
+/*--------------------------------------------------------------*/
 {
 echo "<tr>";
 
@@ -50,7 +56,7 @@ Echo "</tr>";
 echo "</table>";
 
 
-mysql_close ($connection);
+mysqli_close ($connection);
 ?>
 
 <td>

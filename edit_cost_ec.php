@@ -23,11 +23,10 @@ if ($_POST['job_id'] == "" || $_POST['assigtech_cost'] == "")
 }
 
 
-$connection = mysql_pconnect('localhost', 'root', 'mysqlroot')
-	or die ("Couldn't connect to the DB server");
+$connection = mysqli_connect('localhost', 'root', 'mysqlroot','jobs')
+	or die ("Couldn't connect to the DB");
 
-$db= mysql_select_db("jobs",$connection)
-	or die ("can't select database");
+
 
 
 
@@ -36,12 +35,12 @@ $db= mysql_select_db("jobs",$connection)
 $query= "insert into job_cost_ec values
 	(NULL,'$_POST[job_id]','$_POST[assigtech_cost]','$_POST[st_cost]','$_POST[accom_cost]', '$_POST[fuel_cost]', '$_POST[km_total]','$_POST[man_hrs]','$_POST[travel_hrs]','$_POST[cost_centre]','$_POST[gl_acc]','$_POST[part_descr]','$_POST[part_cost]')";	
 
-$result= mysql_query($query)
-or die ("Query failed: " .mysql_error());
+$result= mysqli_query($connection,$query)
+or die ("Query failed: " .mysqli_error());
 
 
 
-mysql_close ($connection);
+mysqli_close ($connection);
 ?>
 
 <td>

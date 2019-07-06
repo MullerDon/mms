@@ -25,11 +25,10 @@ if (!strlen(trim($_POST['job_id'])) or ($_POST['assigned_tech'] == ""))
 }
 
 
-$connection = mysql_pconnect('localhost', 'root', 'mysqlroot')
-	or die ("Couldn't connect to the DB server");
+$connection = mysqli_connect('localhost', 'root', 'mysqlroot','jobs')
+	or die ("Couldn't connect to the DB");
 
-$db= mysql_select_db("jobs",$connection)
-	or die ("can't select database");
+
 
 
 
@@ -39,8 +38,8 @@ $query= "UPDATE job_track_ec SET
 	where job_id='$_POST[job_id]' AND fault_status != 'completed' AND assigned_tech = 'None'";//assigned_tech = None:check if tech already assigned
 	
 
-$result= mysql_query($query)
-or die ("Query failed:" .mysql_error());
+$result= mysqli_query($connection,$query)
+or die ("Query failed:" .mysqli_error());
 //email to assigned person, to notify that a job has been assigned to him/her---------------
 
 mail("$_POST[assigned_tech]@weathersa.co.za","JOB ASSIGNED TO YOU", "JOB EC$_POST[job_id]--Has been assigned to you, please accept or decline the job");
@@ -53,7 +52,7 @@ mail("$_POST[assigned_tech]@weathersa.co.za","JOB ASSIGNED TO YOU", "JOB EC$_POS
 
 //---------------------------------------------------------------------------------------------------
 
-mysql_close ($connection);
+mysqli_close ($connection);
 ?>
 
 <td>

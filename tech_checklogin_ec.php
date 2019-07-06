@@ -4,11 +4,10 @@ session_start();
 
 //connect to database code here
 
-$connection = mysql_pconnect('localhost', 'root', 'mysqlroot')
-	or die ("Couldn't connect to the DB server");
+$connection = mysqli_connect('localhost', 'root', 'mysqlroot','jobs')
+	or die ("Couldn't connect to the DB");
 
-$db= mysql_select_db("jobs",$connection)
-	or die ("can't select database");
+
 
 
 
@@ -19,16 +18,16 @@ $password=$_POST['password'];
 
 //basic cleaning up
 
-$username=mysql_real_escape_string($username);
-$password=mysql_real_escape_string($password);
+$username=mysqli_real_escape_string($connection,$username);
+$password=mysqli_real_escape_string($connection,$password);
 
 $sql = "SELECT * from users WHERE user_name = '$username' AND password = '$password'";
 
-$result = mysql_query($sql) or die (mysql_error());
+$result = mysqli_query($connection,$sql) or die (mysqli_error());
 
 $count = 0;
 
-$count = mysql_num_rows($result);
+$count = mysqli_num_rows($result);
 
 if ($count ==1)
 {

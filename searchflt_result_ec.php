@@ -28,26 +28,25 @@ if (!$searchterm)
 }
 
 
-$connection = mysql_pconnect('localhost', 'root', 'mysqlroot')
-	or die ("Couldn't connect to the DB server");
+$connection = mysqli_connect('localhost', 'root', 'mysqlroot','jobs')
+	or die ("Couldn't connect to the DB");
 
-$db= mysql_select_db("jobs",$connection)
-	or die ("can't select database");
 
-$searchterm = mysql_real_escape_string($searchterm);//This allows special characters such as quotes
+
+$searchterm = mysqli_real_escape_string($connection,$searchterm);//This allows special characters such as quotes
 
 $query = "SELECT job_id, eqpmnt_type, fault_descr, repair_descr FROM job_track_ec
 WHERE MATCH(repair_descr) AGAINST ('$searchterm')";
 
-$result = mysql_query($query)
-	or die ("Query failed: " . mysql_error() );
+$result = mysqli_query($connection,$query)
+	or die ("Query failed: " . mysqli_error() );
 
 echo "<table border='1'cellspacing='0'cellpadding='5'>";
 echo "<tr>";
 echo "<th>JobID</th><th>Equipment Type</th><th>Fault Description</th><th>Repair Description</th>";
 echo "</tr>";
 
-while ($row = mysql_fetch_array($result))
+while ($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
 
@@ -60,7 +59,7 @@ Echo "</tr>";
 echo "</table>";
 
 
-mysql_close ($connection);
+mysqli_close ($connection);
 ?>
 
 <td>

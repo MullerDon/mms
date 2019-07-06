@@ -26,22 +26,21 @@ if (!strlen(trim($_POST['job_id'])))
 }
 
 
-$connection = mysql_pconnect('localhost', 'root', 'mysqlroot')
-	or die ("Couldn't connect to the DB server");
+$connection = mysqli_connect('localhost', 'root', 'mysqlroot','jobs')
+	or die ("Couldn't connect to the DB");
 
-$db= mysql_select_db("jobs",$connection)
-	or die ("can't select database");
+
 
 
 $data = "SELECT * FROM job_track_ec 
 WHERE job_id= '$_POST[job_id]'";
 
-$query = mysql_query($data)
-	or die ("Query failed: " . mysql_error() );
+$query = mysqli_query($connection,$data)
+	or die ("Query failed: " . mysqli_error() );
 
 
 
-$data2 = mysql_fetch_array($query);
+$data2 = mysqli_fetch_array($query);
 
 ?>
 <fieldset><legend>Job Report</legend>
@@ -158,8 +157,8 @@ Date job closed:<br><input type ="text" value="<?php echo $data2['date_closed']?
 $data = "SELECT * FROM job_cost_ec
 WHERE job_id= '$_POST[job_id]'";
 
-$query = mysql_query($data)
-	or die ("Query failed: " . mysql_error() );
+$query = mysqli_query($connection,$data)
+	or die ("Query failed: " . mysqli_error() );
 
 echo "<table border='1' cellspacing='0' cellpadding='5'>";
 echo "<tr>";
@@ -168,7 +167,7 @@ echo "</tr>";
 
 //echo "<table border='1' cellspacing='0' cellpadding='5'>";
 
-while ($data3 = mysql_fetch_array($query)){
+while ($data3 = mysqli_fetch_array($query)){
 
 echo "<tr>";
 
@@ -179,7 +178,7 @@ echo "</table>";
 ?>
 </fieldset>
 <?php
-mysql_close ($connection);
+mysqli_close ($connection);
 ?>
 
 <td>

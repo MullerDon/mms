@@ -22,25 +22,23 @@
 
 
 
-$connection = mysql_pconnect('localhost', 'root', 'mysqlroot')
-	or die ("Couldn't connect to the DB server");
+$connection = mysqli_connect('localhost', 'root', 'mysqlroot','jobs')
+	or die ("Couldn't connect to the DB");
 
-$db= mysql_select_db("jobs",$connection)
-	or die ("can't select database");
 
 
 $query = "SELECT * FROM job_track_ec
 WHERE fault_status = 'completed' AND close_job = 'closed' ORDER BY job_id";
 
-$result = mysql_query($query)
-	or die ("Query failed: " . mysql_error() );
+$result = mysqli_query($connection,$query)
+	or die ("Query failed: " . mysqli_error() );
 
 echo "<table border='1' cellpadding='5' cellspacing='0'>";
 echo "<tr>";
 echo "<th>JobID</th><th>Type</th><th>Fault</th><th>Date</th><th>Fault Status</th><th>DateCompleted</th><th>Repairs</th><th>Location</th><th>Job assigned to</th><th>Job logged by</th><th>Can job be closed?</th><th>Job Status</th>";
 echo "</tr>";
 
-while ($row = mysql_fetch_array($result))
+while ($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
 
@@ -53,7 +51,7 @@ Echo "</tr>";
 echo "</table>";
 
 
-mysql_close ($connection);
+mysqli_close ($connection);
 ?>
 
 <td>
